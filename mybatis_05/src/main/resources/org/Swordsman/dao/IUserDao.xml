@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置映射的dao实体类 namespace=映射接口全限定类名-->
+<mapper namespace="org.Swordsman.dao.IUserDao">
+    <!--抽出部分高重率sql   <include refid="标识id{如:defaultUser}"></include> -->
+    <sql id="defaultUser">
+    SELECT * FROM USER
+    </sql>
+    <!--    &lt;!&ndash;配置查询结果集的列名和实体类的属性名相对应关系 property=实体类属性名 column=结果集列名 &ndash;&gt;-->
+    <!--    <resultMap id="userMap" type="org.Swordsman.domain.User">-->
+    <!--        &lt;!&ndash;主键字段对应关系&ndash;&gt;-->
+    <!--        <id property="userId" column="id"></id>-->
+    <!--        &lt;!&ndash;非主键对应关系&ndash;&gt;-->
+    <!--        <result property="UserName" column="username"></result>-->
+    <!--        ...-->
+    <!--    </resultMap>-->
+
+    <!--id=接口中的方法名,resultType=方法的返回值封装类型 select用于查询-->
+    <select id="findAll" resultType="org.Swordsman.domain.User">
+        SELECT * FROM USER
+    </select>
+    <select id="findById" resultType="org.Swordsman.domain.User" parameterType="java.lang.Integer">
+        select * from user where id=#{id}
+    </select>
+    <select id="findByName" resultType="org.Swordsman.domain.User" parameterType="String">
+        select * from user where username like #{name}
+    </select>
+    <select id="findUserByVo" resultType="org.Swordsman.domain.User" parameterType="org.Swordsman.domain.QueryVo">
+        select * from user where username like #{user.username}
+    </select>
+    <!--动态sql if标签使用：作用：条件为真即刻添加sql反之不添-->
+    <!--  <select id="findUserByConditions" resultType="org.Swordsman.domain.User" parameterType="org.Swordsman.domain.User">
+          SELECT * FROM USER WHERE 1=1
+          <if test="username !=null">
+              and username=#{username}
+          </if>
+          <if test="sex !=null">
+              and sex=#{sex}
+          </if>
+      </select>-->
+    <!--动态sql where使用 作用：避免在sql语句中添加 where 1=1 使得sql看起来更精干 因为mybatis会动态分析添加where -->
+    <select id="findUserByConditions" resultType="org.Swordsman.domain.User" parameterType="org.Swordsman.domain.User">
+        SELECT * FROM USER
+        <where>
+            <if test="username !=null">
+                and username=#{username}
+            </if>
+            <if test="sex !=null">
+                and sex=#{sex}
+            </if>
+        </where>
+
+    </select>
+
+    <!--动态sql foreach使用 作用:目前了解就是子查询参数动态-->
+
+    <select id="findUserQueryVo" resultType="org.Swordsman.domain.User" parameterType="org.Swordsman.domain.QueryVo">
+        <include refid="defaultUser"></include>
+        <where>
+            <if test="ids !=null and ids.size()>0">
+                <foreach collection="ids" open="and id in(" close=")" item="id" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>
+        <!--注意！:#{}是mybatis中sql语句的占位符 注意！: 如果实体类的属性不是idea快捷键生成的,则需要写属性相对应的set方法，反之可以直接写属性名 -->
+        <!--注意！:如果方法形参只有且仅有一个，那么#{}占位符中名称可以随便写-->
+        <!-- test中的参数是来自于parameterType所定义的参数类型中-->
+        <!--在test中不可以使用java中的逻辑条件判断语句(&& || ..) 而是只能使用sql中的(and or ...)-->

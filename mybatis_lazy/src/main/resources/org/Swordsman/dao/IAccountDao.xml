@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Swordsman.dao.IAccountDao">
+
+    <!--定义Account的resultMap-->
+    <resultMap id="AccountUserMap" type="org.Swordsman.domain.Account">
+        <id property="id" column="id"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <!--一对一关系映射 配置user的封装内容 javaType=是当前Account属性user的封装类-->
+        <association property="user" column="uid" javaType="org.Swordsman.domain.User"
+                     select="org.Swordsman.dao.IUserDao.findById">
+            <!--它是用于指定从表方的引用实体属性的
+            select属性指定的内容:指定的是dao层的方法，但是mybatis会去调用当前dao层的映射配置文件中所对应的方法 如当前：org.Swordsman.dao.IUserDao中的findById：查询 用户的唯一标识 指定的是dao层的方法，实际上mybatis调用的是IUserDao.xml中的findById
+            column属性指定的内容:用户根据id查询时，所需的参数 (uid来自于被查询<result property="uid" column="uid"></result>的uid，它还是延迟加载findById方法中所需的参数id)
+            -->
+        </association>
+    </resultMap>
+    <!--查询所有用户-->
+    <select id="findAll" resultMap="AccountUserMap">
+     select * from account
+    </select>
+    <!--根据用户id查询所属账户信息-->
+    <select id="findAccountByUid" resultType="org.Swordsman.domain.Account">
+     select * from account where uid=#{uid}
+    </select>
+</mapper>
+        <!--property=实体类名称 column=数据集列名 -->

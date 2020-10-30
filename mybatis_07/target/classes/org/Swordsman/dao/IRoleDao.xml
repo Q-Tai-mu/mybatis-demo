@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.Swordsman.dao.IRoleDao">
+    <!--配置Role的resultMap-->
+    <resultMap id="roleMap" type="org.Swordsman.domain.Role">
+        <id property="roleId" column="rid"></id>
+        <result property="roleName" column="ROLE_NAME"></result>
+        <result property="roleDesc" column="ROLE_DESC"></result>
+        <!-- 配置多对多的映射users-->
+        <collection property="users" ofType="org.Swordsman.domain.User">
+            <id property="id" column="id"></id>
+            <result property="username" column="username"></result>
+            <result property="birthday" column="birthday"></result>
+            <result property="sex" column="sex"></result>
+            <result property="address" column="address"></result>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="roleMap">
+      select u.*,r.ID as rid,r.ROLE_NAME,r.ROLE_DESC from `user` u,role r,user_role ur WHERE u.id=ur.UID and r.ID=ur.RID
+    </select>
+
+</mapper>

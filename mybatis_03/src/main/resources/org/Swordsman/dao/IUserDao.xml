@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置映射的dao实体类 namespace=映射接口全限定类名-->
+<mapper namespace="org.Swordsman.dao.IUserDao">
+
+<!--    &lt;!&ndash;配置查询结果集的列名和实体类的属性名相对应关系 property=实体类属性名 column=结果集列名 &ndash;&gt;-->
+<!--    <resultMap id="userMap" type="org.Swordsman.domain.User">-->
+<!--        &lt;!&ndash;主键字段对应关系&ndash;&gt;-->
+<!--        <id property="userId" column="id"></id>-->
+<!--        &lt;!&ndash;非主键对应关系&ndash;&gt;-->
+<!--        <result property="UserName" column="username"></result>-->
+<!--        ...-->
+<!--    </resultMap>-->
+
+
+    <!--id=接口中的方法名,resultType=方法的返回值封装类型 select用于查询-->
+    <select id="findAll" resultType="org.Swordsman.domain.User">
+        SELECT * FROM USER
+    </select>
+    <!-- id=接口中的方法名 parameterType=方法参数类型 insert用于添加 -->
+    <insert id="saveUser" parameterType="org.Swordsman.domain.User">
+        <selectKey resultType="int" keyProperty="id" keyColumn="id" order="AFTER">
+            select last_insert_id();
+        </selectKey>
+        insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address});
+    </insert>
+    <!--id=接口中的方法名 parameterType=方法参数类型 update用于修改  -->
+    <update id="updateUser" parameterType="org.Swordsman.domain.User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+    <!--id=接口中的方法名 parameterType=方法参数类型 delete用于删除 -->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id=#{uid}
+    </delete>
+    <select id="findById" resultType="org.Swordsman.domain.User" parameterType="java.lang.Integer">
+        select * from user where id=#{id}
+    </select>
+    <select id="findByName" resultType="org.Swordsman.domain.User" parameterType="String">
+        select * from user where username like #{name}
+    </select>
+    <select id="findByTotal" resultType="INT">
+        select count(id) from user;
+    </select>
+    <select id="findUserByVo" resultType="org.Swordsman.domain.User" parameterType="org.Swordsman.domain.QueryVo">
+        select * from user where username like #{user.username}
+    </select>
+</mapper>
+        <!--注意！:#{}是mybatis中sql语句的占位符 注意！: 如果实体类的属性不是idea快捷键生成的,则需要写属性相对应的set方法，反之可以直接写属性名 -->
+        <!--注意！:如果方法形参只有且仅有一个，那么#{}占位符中名称可以随便写-->

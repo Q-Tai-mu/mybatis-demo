@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 导入连接配置
+     jdbcConfig.properties
+     jdbcConfig.properties
+     -->
+    <properties resource="jdbcConfig.properties"></properties>
+    <!--开启mybatis全局缓存-->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!--使用typeAliases配置domain实体的别名，typeAliases只能配置domain中类的别名-->
+    <typeAliases>
+        <package name="org.rainy.domain"/>
+    </typeAliases>
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 配置带有注解的dao接口位置-->
+    <mappers>
+        <package name="org.rainy.dao"/>
+    </mappers>
+</configuration>

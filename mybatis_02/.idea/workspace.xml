@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f750d5df-b8c2-4b47-9605-2ca623154a62" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\RemoSwor\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../IDE/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\IDE\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.8" />
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectId" id="1btbMYiG2odxFhqRosraSEXEuDZ" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/mybatis-3.4.5.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.36206895" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.Swordsman" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\StudyCaseSpace\NetFrameset\mybatis02\src\main" />
+      <recent name="D:\StudyCaseSpace\NetFrameset\mybatis02\src\test\java" />
+      <recent name="D:\StudyCaseSpace\NetFrameset\mybatis02\src\main\resources" />
+      <recent name="D:\StudyCaseSpace\NetFrameset\mybatis02\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MybatisTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.Swordsman.test.MybatisTest" />
+      <module name="mybatis02" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.Swordsman.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MybatisTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f750d5df-b8c2-4b47-9605-2ca623154a62" name="Default Changelist" comment="" />
+      <created>1589454289981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589454289981</updated>
+      <workItem from="1589454291513" duration="1010000" />
+      <workItem from="1589455327815" duration="3794000" />
+      <workItem from="1589459733031" duration="1170000" />
+      <workItem from="1589461220510" duration="2510000" />
+      <workItem from="1589464458011" duration="1253000" />
+      <workItem from="1589533680567" duration="286000" />
+      <workItem from="1589535481777" duration="32000" />
+      <workItem from="1589539502005" duration="3000" />
+      <workItem from="1589539805753" duration="17000" />
+      <workItem from="1589539911664" duration="108000" />
+      <workItem from="1589589586044" duration="237000" />
+      <workItem from="1589589829799" duration="31000" />
+      <workItem from="1589589887692" duration="7000" />
+      <workItem from="1589589910833" duration="176000" />
+      <workItem from="1589590097864" duration="594000" />
+      <workItem from="1589590694622" duration="659000" />
+      <workItem from="1589591789110" duration="21000" />
+      <workItem from="1589594676494" duration="105000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="444" y="12" key="#MybatisTest" timestamp="1589590289958">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="444" y="12" key="#MybatisTest/0.0.1536.824@0.0.1536.824" timestamp="1589590289958" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589590304010">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1589590304010" />
+    <state x="93" y="198" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1589457279771">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="198" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589457279771" />
+    <state x="325" y="64" key="FileChooserDialogImpl" timestamp="1589594755836">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="325" y="64" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589594755836" />
+    <state width="1493" height="333" key="GridCell.Tab.0.bottom" timestamp="1589594784453">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="333" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589594784453" />
+    <state width="1493" height="333" key="GridCell.Tab.0.center" timestamp="1589594784453">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="333" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589594784453" />
+    <state width="1493" height="333" key="GridCell.Tab.0.left" timestamp="1589594784453">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="333" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589594784453" />
+    <state width="1493" height="333" key="GridCell.Tab.0.right" timestamp="1589594784453">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="333" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589594784453" />
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1589590189083">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1589590189083" />
+    <state x="160" y="61" width="1038" height="707" key="SettingsEditor" timestamp="1589594758574">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="160" y="61" width="1038" height="707" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589594758574" />
+    <state x="291" y="211" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1589457407812">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="291" y="211" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1589457407812" />
+    <state x="0" y="75" key="new project wizard" timestamp="1589462348415">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="75" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1589462348415" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589454830622">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589454830622" />
+  </component>
+</project>

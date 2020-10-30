@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置映射的dao实体类 namespace=映射接口全限定类名-->
+<mapper namespace="org.Swordsman.dao.IUserDao">
+    <!--定义user的resultMap-->
+    <resultMap id="UserResultMap" type="org.Swordsman.domain.User">
+        <id property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="birthday" column="birthday"></result>
+        <result property="sex" column="sex"></result>
+        <result property="address" column="address"></result>
+        <!--配置user对象中accounts集合的映射 ofType是当前集合属性返回值类型-->
+        <collection property="accounts" ofType="account" select="org.Swordsman.dao.IAccountDao.findAccountByUid" column="id"></collection>
+    </resultMap>
+    <!--id=接口中的方法名,resultType=方法的返回值封装类型 select用于查询-->
+    <select id="findAll" resultMap="UserResultMap">
+        SELECT * from user
+    </select>
+    <select id="findById" resultType="org.Swordsman.domain.User" parameterType="java.lang.Integer">
+        select * from user where id=#{id}
+    </select>
+</mapper>
+        <!-- u LEFT OUTER JOIN account a on u.id=a.uid-->
+        <!--注意！:#{}是mybatis中sql语句的占位符 注意！: 如果实体类的属性不是idea快捷键生成的,则需要写属性相对应的set方法，反之可以直接写属性名 -->
+        <!--注意！:如果方法形参只有且仅有一个，那么#{}占位符中名称可以随便写-->
+        <!-- test中的参数是来自于parameterType所定义的参数类型中-->
+        <!--在test中不可以使用java中的逻辑条件判断语句(&& || ..) 而是只能使用sql中的(and or ...)-->

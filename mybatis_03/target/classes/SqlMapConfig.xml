@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--properties配置
+        可以在标签内配置连接数据库信息,也可以通过属性引入外部配置文件信息
+        resource属性: 常用属性
+            用于指定配置文件的位置，是按照类路径的写法来写，配置文件必须存在于类路径之下
+        url属性:
+            按照url路径来写
+            URL: Uniform Resource Locator 全球资源统一定位符 它是可以唯一标识一个资源的位置
+            URI: Uniform Resource Identifier 全球资源统一标识符 它是在应用中可以唯一定位一个资源位置
+            写法：
+                协议 主机 端口 URI
+                http://localhost:808/mybatis/deom1Servlet
+            案例:file:///D:/DiEC/UsanceHom/mybatis_03/src/main/resources/jdbcConfig.properties
+            或者: http://localhost:808/mybatis/resources/jdbcConfig.properties
+    -->
+    <properties resource="jdbcConfig.properties"></properties>
+
+    <!--设置LOG4J环境-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <!--
+        使用typeAliases配置 它只能配置domain下类的别名
+    -->
+    <typeAliases>
+        <!--typeAlias中type配置的是实体类的全限定类名 alias配置的是当前对应的实体类别名 当指定了别名就不区分大小写-->
+        <!-- <typeAlias type="org.Swordsman.domain.User" alias="user"></typeAlias>-->
+        <package name="org.Swordsman.domain"/>
+    </typeAliases>
+    <!--mybatis配置域-->
+    <environments default="mysql">
+        <!--配置mysql环境-->
+        <environment id="mysql">
+            <!--配置事务的类型-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--配置连接池-->
+            <dataSource type="POOLED">
+                <!--配置数据库连接池的4个基本信息-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--配置映射文件-->
+    <mappers>
+        <mapper resource="org/Swordsman/dao/IUserDao.xml"/>
+        <!--  package是用于指定dao接口所在的包 当指定了之后,就不再需要写mapper已经resource或class
+        <package name="org.Swordsman.dao"/>
+        -->
+    </mappers>
+</configuration>

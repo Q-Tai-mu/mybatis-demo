@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置映射的dao实体类 namespace=映射接口全限定类名-->
+<mapper namespace="org.Swordsman.dao.IUserDao">
+    <!--开启user支持二级缓存-->
+    <cache/>
+    <!--id=接口中的方法名,resultType=方法的返回值封装类型 select用于查询-->
+    <select id="findAll" resultType="org.Swordsman.domain.User">
+        SELECT * FROM USER
+    </select>
+    <!--useCache="true" 开启当前标签支持二级缓存-->
+    <select id="findById" resultType="org.Swordsman.domain.User" parameterType="java.lang.Integer" useCache="true">
+        select * from user where id=#{id}
+    </select>
+    <update id="updateUser" parameterType="org.Swordsman.domain.User">
+        update  user set username=#{username},address=#{address}  where id=#{id}
+    </update>
+</mapper>
+        <!--注意！:#{}是mybatis中sql语句的占位符 注意！: 如果实体类的属性不是idea快捷键生成的,则需要写属性相对应的set方法，反之可以直接写属性名 -->
+        <!--注意！:如果方法形参只有且仅有一个，那么#{}占位符中名称可以随便写-->
+        <!-- test中的参数是来自于parameterType所定义的参数类型中-->
+        <!--在test中不可以使用java中的逻辑条件判断语句(&& || ..) 而是只能使用sql中的(and or ...)-->

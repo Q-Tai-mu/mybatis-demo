@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置映射的dao实体类 namespace=映射接口全限定类名-->
+<mapper namespace="org.Swordsman.dao.IUserDao">
+
+    <!--id=接口中的方法名,resultType=方法的返回值封装类型 select用于查询-->
+    <select id="findAll" resultType="org.Swordsman.domain.User">
+        SELECT * FROM USER
+    </select>
+
+</mapper>
