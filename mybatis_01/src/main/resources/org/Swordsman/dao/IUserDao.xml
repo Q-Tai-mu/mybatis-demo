@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置映射的dao实体类 namespace=dao接口的全限定类名路径-->
+ <mapper namespace="org.Swordsman.dao.IUserDao">
+<!--九大代码执行域-->
+<!-- select执行域对应mysql中查询 注意！id=dao接口的方法名 select主体内写具体的sql即可 resultType=sql语句执行完成后需要返回的对象，也就是findAll方法的返回值类型 -->
+    <select id="findAll" resultType="org.Swordsman.domain.user">
+        SELECT * FROM USER
+    </select>
+
+</mapper>
